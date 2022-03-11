@@ -1,0 +1,50 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum EPaymentMethod {
+  CREDIT
+  DEBIT
+}
+
+enum EExpensesTypes {
+  RENT
+  BILLS
+  HOUSE
+  TAKEAWAY
+  MARKET
+  DRUGS
+  LEISURE
+  CATS
+}
+
+model Expenses {
+  id String @id @default(uuid()) @map("ID")
+  expenseType EExpensesTypes @map("EXPENSE_TYPE")
+  value Decimal @map("VALUE")
+  expenseDate DateTime @map("EXPENSE_DATE")
+  paymentMethod EPaymentMethod @map("PAYMENT_METHOD")
+}
+
+model Cryptos {
+  id String @id @default(uuid()) @map("ID")
+  token String @map("TOKEN")
+  amount Decimal @map("VALUE")
+  purchasingDate DateTime @map("PURCHASING_DATE")
+  fiatValue Decimal @map("FIAT_VALUE")
+}
+
+model Goals {
+  id String @id @default(uuid()) @map("ID")
+  goal String @map("GOAL")
+  amountNeeded Decimal @map("AMOUNT_NEEDED")
+  totalSaved Decimal @map("TOTAL_SAVED")
+}

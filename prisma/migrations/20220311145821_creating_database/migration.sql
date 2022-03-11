@@ -1,0 +1,37 @@
+-- CreateEnum
+CREATE TYPE "EPaymentMethod" AS ENUM ('CREDIT', 'DEBIT');
+
+-- CreateEnum
+CREATE TYPE "EExpensesTypes" AS ENUM ('RENT', 'BILLS', 'HOUSE', 'TAKEAWAY', 'MARKET', 'DRUGS', 'LEISURE', 'CATS');
+
+-- CreateTable
+CREATE TABLE "Expenses" (
+    "ID" TEXT NOT NULL,
+    "EXPENSE_TYPE" "EExpensesTypes" NOT NULL,
+    "VALUE" DECIMAL(65,30) NOT NULL,
+    "EXPENSE_DATE" TIMESTAMP(3) NOT NULL,
+    "PAYMENT_METHOD" "EPaymentMethod" NOT NULL,
+
+    CONSTRAINT "Expenses_pkey" PRIMARY KEY ("ID")
+);
+
+-- CreateTable
+CREATE TABLE "Cryptos" (
+    "ID" TEXT NOT NULL,
+    "TOKEN" TEXT NOT NULL,
+    "VALUE" DECIMAL(65,30) NOT NULL,
+    "PURCHASING_DATE" TIMESTAMP(3) NOT NULL,
+    "FIAT_VALUE" DECIMAL(65,30) NOT NULL,
+
+    CONSTRAINT "Cryptos_pkey" PRIMARY KEY ("ID")
+);
+
+-- CreateTable
+CREATE TABLE "Goals" (
+    "ID" TEXT NOT NULL,
+    "GOAL" TEXT NOT NULL,
+    "AMOUNT_NEEDED" DECIMAL(65,30) NOT NULL,
+    "TOTAL_SAVED" DECIMAL(65,30) NOT NULL,
+
+    CONSTRAINT "Goals_pkey" PRIMARY KEY ("ID")
+);
