@@ -7,15 +7,17 @@ export class CryptosController {
     service: CryptoService
     constructor(
     ){
-        this.service = new CryptoService(new PrismaClient());
+        this.service = new CryptoService();
     }
 
-    async getAllCryptos(req: Request, res: Response) {
-        res.status(200).json((await this.service.getAll()))
+    public getAllCryptos(req: Request, res: Response) {
+        const allCryptos = this.service.getAll();
+        res.status(200).json(allCryptos);
     }
 
-    async getSpecificCrypto(req: Request, res: Response) {
-        res.status(200).json((await this.service.getOne(req.params.id)))
+     getSpecificCrypto(req: Request, res: Response) {
+        const allCryptos = this.service.getOne(req.params.id);
+        res.status(200).json(allCryptos);
     }
 
     async createNewCrypto(req: Request, res: Response) {

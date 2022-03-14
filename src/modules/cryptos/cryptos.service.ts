@@ -1,19 +1,15 @@
 import { PrismaClient } from '@prisma/client';
 import { ICreateCrypto } from './cryptos.interface';
 
+const prisma = new PrismaClient();
 export default class CryptosServices {
-    constructor (
-        private prisma: PrismaClient
-    ){
-
-    }
 
     async getAll() {
-        return this.prisma.cryptos.findMany();
+        return await prisma.cryptos.findMany();
     }
 
     async getOne(id: string) {
-        return this.prisma.cryptos.findUnique({
+        return await prisma.cryptos.findUnique({
             where: {
                 id
             }
@@ -21,13 +17,13 @@ export default class CryptosServices {
     }
 
     async create(data: ICreateCrypto){
-        return this.prisma.cryptos.create({
+        return await prisma.cryptos.create({
             data: data
         })
     }
 
     async delete(id: string){
-        return this.prisma.cryptos.delete({
+        return await prisma.cryptos.delete({
             where: {
                 id
             }

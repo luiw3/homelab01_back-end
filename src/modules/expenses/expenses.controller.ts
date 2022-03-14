@@ -7,7 +7,7 @@ export class ExpensesController {
     service: ExpensesServices
     constructor(
     ){
-        this.service = new ExpensesServices(new PrismaClient());
+        this.service = new ExpensesServices();
     }
 
     async getAllExpenses(req: Request, res: Response) {

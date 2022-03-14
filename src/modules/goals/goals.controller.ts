@@ -7,7 +7,7 @@ export class GoalsController {
     service: GoalsServices
     constructor(
     ){
-        this.service = new GoalsServices(new PrismaClient());
+        this.service = new GoalsServices();
     }
 
     async getAllGoals(req: Request, res: Response) {
