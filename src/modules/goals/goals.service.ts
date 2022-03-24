@@ -2,19 +2,20 @@ import { PrismaClient } from '@prisma/client';
 import { ICreateGoal } from './goals.interface';
 
 
-const prisma = new PrismaClient();
 export default class GoalsServices {
+
+    prisma: PrismaClient;
     constructor (
     ){
-
+        this.prisma = new PrismaClient();
     }
 
     async getAll() {
-        return prisma.goals.findMany();
+        return this.prisma.goals.findMany();
     }
 
     async getOne(id: string) {
-        return prisma.goals.findUnique({
+        return this.prisma.goals.findUnique({
             where: {
                 id
             }
@@ -22,13 +23,13 @@ export default class GoalsServices {
     }
 
     async create(data: ICreateGoal){
-        return prisma.goals.create({
+        return this.prisma.goals.create({
             data: data
         })
     }
 
     async delete(id: string){
-        return prisma.goals.delete({
+        return this.prisma.goals.delete({
             where: {
                 id
             }

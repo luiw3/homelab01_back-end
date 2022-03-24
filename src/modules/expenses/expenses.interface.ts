@@ -11,7 +11,7 @@ enum EExpenseTypes {
     HOUSE = 'HOUSE',
     TAKEAWAY = 'TAKEAWAY',
     MARKET = 'MARKET',
-    DRUGS = 'DRUGS',
+    MISC = 'MISC',
     LEISURE = 'LEISURE',
     CATS = 'CATS'
 }

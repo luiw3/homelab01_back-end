@@ -21,7 +21,7 @@ enum EExpensesTypes {
   HOUSE
   TAKEAWAY
   MARKET
-  DRUGS
+  MISC
   LEISURE
   CATS
 }

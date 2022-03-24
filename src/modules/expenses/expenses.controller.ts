@@ -11,18 +11,18 @@ export class ExpensesController {
     }
 
     async getAllExpenses(req: Request, res: Response) {
-        res.status(200).json((await this.service.getAll()))
+        res.status(200).json((await this.service.getAll()));
     }
 
     async getSpecificExpense(req: Request, res: Response) {
-        res.status(200).json((await this.service.getOne(req.params.id)))
+        res.status(200).json((await this.service.getOne(req.params.id)));
     }
 
     async createNewExpense(req: Request, res: Response) {
-        res.status(200).json((await this.service.create(req.body)))
+        res.status(200).json((await this.service.create(req.body)));
     }
 
     async deleteExpense(req: Request, res: Response) {
-        res.status(200).json((await this.service.delete(req.params.id)))
+        res.status(200).json((await this.service.delete(req.params.id)));
     }
 }

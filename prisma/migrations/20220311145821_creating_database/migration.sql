@@ -2,7 +2,7 @@
 CREATE TYPE "EPaymentMethod" AS ENUM ('CREDIT', 'DEBIT');
 
 -- CreateEnum
-CREATE TYPE "EExpensesTypes" AS ENUM ('RENT', 'BILLS', 'HOUSE', 'TAKEAWAY', 'MARKET', 'DRUGS', 'LEISURE', 'CATS');
+CREATE TYPE "EExpensesTypes" AS ENUM ('RENT', 'BILLS', 'HOUSE', 'TAKEAWAY', 'MARKET', 'MISC', 'LEISURE', 'CATS');
 
 -- CreateTable
 CREATE TABLE "Expenses" (

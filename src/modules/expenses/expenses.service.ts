@@ -1,19 +1,21 @@
 import { PrismaClient } from '@prisma/client';
 import { ICreateExpense } from './expenses.interface';
 
-const prisma = new PrismaClient();
 export default class ExpensesServices {
+
+    prisma: PrismaClient;
+
     constructor (
     ){
-
+        this.prisma = new PrismaClient();
     }
 
     async getAll() {
-        return prisma.expenses.findMany();
+        return this.prisma.expenses.findMany();
     }
 
     async getOne(id: string) {
-        return prisma.expenses.findUnique({
+        return this.prisma.expenses.findUnique({
             where: {
                 id
             }
@@ -21,16 +23,16 @@ export default class ExpensesServices {
     }
 
     async create(data: ICreateExpense){
-        return prisma.expenses.create({
+        return this.prisma.expenses.create({
             data: data
-        })
+        });
     }
 
     async delete(id: string){
-        return prisma.expenses.delete({
+        return this.prisma.expenses.delete({
             where: {
                 id
             }
-        })
+        });
     }
 }
