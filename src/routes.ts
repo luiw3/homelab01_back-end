@@ -2,20 +2,20 @@ import express from "express";
 import { ExpensesController } from './modules/expenses/expenses.controller'
 import { CryptosController } from './modules/cryptos/cryptos.controller'
 import { GoalsController } from './modules/goals/goals.controller'
-import { PrismaClient } from '@prisma/client';
+import { loggerMiddleware } from './middlewares/logger.middleware'
 
 const expenses = new ExpensesController();
 const cryptos = new CryptosController();
 const goals = new GoalsController();
 const routes = express.Router();
 
-routes.get('/expenses', (req,res) => expenses.getAllExpenses(req,res));
+routes.get('/expenses', loggerMiddleware, (req,res) => expenses.getAllExpenses(req,res));
 
-routes.get('/expenses/:id', (req,res) => expenses.getSpecificExpense(req,res));
+routes.get('/expenses/:id', loggerMiddleware ,(req,res) => expenses.getSpecificExpense(req,res));
 
-routes.post('/expenses', (req,res) => expenses.createNewExpense(req,res));
+routes.post('/expenses', loggerMiddleware, (req,res) => expenses.createNewExpense(req,res));
 
-routes.delete('/expenses/:id', (req,res) => expenses.deleteExpense(req,res))
+routes.delete('/expenses/:id',loggerMiddleware, (req,res) => expenses.deleteExpense(req,res))
 
 // the following way doesn't works
 // routes.get('/cryptos', cryptos.getAllCryptos)
