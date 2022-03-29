@@ -32,6 +32,8 @@ model Expenses {
   value Decimal @map("VALUE")
   expenseDate DateTime @map("EXPENSE_DATE")
   paymentMethod EPaymentMethod @map("PAYMENT_METHOD")
+  user_id String
+  user Users @relation("USERS_EXPENSES", fields: [user_id], references: [id])
 }
 
 model Cryptos {
@@ -40,6 +42,9 @@ model Cryptos {
   amount Decimal @map("VALUE")
   purchasingDate DateTime @map("PURCHASING_DATE")
   fiatValue Decimal @map("FIAT_VALUE")
+  user_id String
+  user Users @relation("USERS_CRYPTOS", fields: [user_id], references: [id])
+
 }
 
 model Goals {
@@ -47,4 +52,15 @@ model Goals {
   goal String @map("GOAL")
   amountNeeded Decimal @map("AMOUNT_NEEDED")
   totalSaved Decimal @map("TOTAL_SAVED")
+  user_id String
+  user Users @relation("USERS_GOALS", fields: [user_id], references: [id])
+}
+
+model Users {
+  id String @id @default(uuid()) @map("ID")
+  email String @map("EMAIL")
+  password String @map("PASSWORD")
+  expenses Expenses[] @relation("USERS_EXPENSES")
+  cryptos Cryptos[] @relation("USERS_CRYPTOS")
+  goals Goals[] @relation("USERS_GOALS")
 }
