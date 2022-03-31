@@ -1,8 +1,11 @@
+import { Users } from "@prisma/client";
+
 export interface ICreateExpense {
     expenseType: EExpenseTypes;
     value: number;
     expenseDate: Date;
     paymentMethod: EPaymentMethods;
+    user: Users;
 }
 
 enum EExpenseTypes {
