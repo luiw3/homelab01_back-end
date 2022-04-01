@@ -52,6 +52,7 @@ model Goals {
   goal String @map("GOAL")
   amountNeeded Decimal @map("AMOUNT_NEEDED")
   totalSaved Decimal @map("TOTAL_SAVED")
+  targetDate DateTime @map("TARGET_DATE")
   user_id String
   user Users @relation("USERS_GOALS", fields: [user_id], references: [id])
 }
