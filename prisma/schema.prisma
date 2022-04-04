@@ -61,6 +61,7 @@ model Users {
   id String @id @default(uuid()) @map("ID")
   email String @map("EMAIL")
   password String @map("PASSWORD")
+  name String @map("NAME")
   expenses Expenses[] @relation("USERS_EXPENSES")
   cryptos Cryptos[] @relation("USERS_CRYPTOS")
   goals Goals[] @relation("USERS_GOALS")
