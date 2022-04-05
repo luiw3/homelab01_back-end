@@ -4,5 +4,6 @@ export interface ICreateGoal {
     goal: string;
     amountNeeded: number;
     totalSaved: number;
+    targetDate: Date;
     user: Users;
 }
