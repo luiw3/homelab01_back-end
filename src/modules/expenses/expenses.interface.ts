@@ -2,6 +2,7 @@ import { Users } from "@prisma/client";
 
 export interface ICreateExpense {
     expenseType: EExpenseTypes;
+    name: string;
     value: number;
     expenseDate: Date;
     paymentMethod: EPaymentMethods;

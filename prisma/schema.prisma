@@ -28,6 +28,7 @@ enum EExpensesTypes {
 
 model Expenses {
   id String @id @default(uuid()) @map("ID")
+  name String @map("NAME")
   expenseType EExpensesTypes @map("EXPENSE_TYPE")
   value Decimal @map("VALUE")
   expenseDate DateTime @map("EXPENSE_DATE")
