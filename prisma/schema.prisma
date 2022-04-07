@@ -53,9 +53,13 @@ model Goals {
   goal String @map("GOAL")
   amountNeeded Decimal @map("AMOUNT_NEEDED")
   totalSaved Decimal @map("TOTAL_SAVED")
+  needsMoney Boolean @map("NEEDS_MONEY")
   targetDate DateTime @map("TARGET_DATE")
   user_id String @map("USER_ID")
   user Users @relation("USERS_GOALS", fields: [user_id], references: [id])
+  parent_id String?
+  parent    Goals?  @relation("parent_child_parameter", fields: [parent_id], references: [id])
+  children  Goals[] @relation("parent_child_parameter")
 }
 
 model Users {
