@@ -6,6 +6,7 @@ export interface ICreateGoal {
     totalSaved: number;
     targetDate: Date;
     user: Users;
-    parent?: ICreateGoal
-    children?: ICreateGoal
+    parent?: ICreateGoal;
+    children?: ICreateGoal;
+    needsMoney: boolean;
 }

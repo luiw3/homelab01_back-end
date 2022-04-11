@@ -33,6 +33,7 @@ model Expenses {
   value Decimal @map("VALUE")
   expenseDate DateTime @map("EXPENSE_DATE")
   paymentMethod EPaymentMethod @map("PAYMENT_METHOD")
+  isRecurrent Boolean @map("IS_RECURRENT")
   user_id String @map("USER_ID")
   user Users @relation("USERS_EXPENSES", fields: [user_id], references: [id])
 }
