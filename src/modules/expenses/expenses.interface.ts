@@ -7,6 +7,7 @@ export interface ICreateExpense {
     expenseDate: Date;
     paymentMethod: EPaymentMethods;
     user: Users;
+    isRecurrent: boolean
 }
 
 enum EExpenseTypes {
