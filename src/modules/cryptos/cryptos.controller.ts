@@ -21,6 +21,7 @@ export class CryptosController {
     }
 
     async createNewCrypto(req: Request, res: Response) {
+        console.log('req',req.body);
         res.status(200).json((await this.service.create(req.body)))
     }
 
